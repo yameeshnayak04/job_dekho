@@ -5,12 +5,14 @@ class ATSScore {
   final Map<String, int> breakdown;
   final List<String> strengths;
   final List<String> improvements;
+  final List<String> missingKeywords;
 
   ATSScore({
     required this.overallScore,
     required this.breakdown,
     required this.strengths,
     required this.improvements,
+    this.missingKeywords = const [],
   });
 
   String get rating {

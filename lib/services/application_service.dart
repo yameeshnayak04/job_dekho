@@ -72,11 +72,24 @@ class ApplicationService {
       strengths.add('Good experience profile');
     }
 
+    final keywordPool = <String>{
+      ...job.skills,
+      'Git',
+      'REST',
+      'Problem Solving',
+      'Teamwork',
+    }.toList();
+    keywordPool.shuffle(_random);
+
+    final missingCount = _random.nextInt(4); // 0..3
+    final missingKeywords = keywordPool.take(missingCount).toList();
+
     return ATSScore(
       overallScore: baseScore,
       breakdown: breakdown,
       strengths: strengths,
       improvements: improvements,
+      missingKeywords: missingKeywords,
     );
   }
 }

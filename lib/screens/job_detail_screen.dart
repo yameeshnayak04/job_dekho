@@ -112,6 +112,19 @@ class _JobDetailScreenState extends State<JobDetailScreen> {
                         avatar: const Icon(Icons.currency_rupee, size: 18),
                         label: Text(widget.job.package),
                       ),
+                      Chip(
+                        avatar: const Icon(Icons.grade, size: 18),
+                        label: Text('Min CGPA ${widget.job.minCgpa}'),
+                      ),
+                      Chip(
+                        avatar: const Icon(Icons.school, size: 18),
+                        label: Text(
+                          widget.job.eligibleBranches.take(2).join(', ') +
+                              (widget.job.eligibleBranches.length > 2
+                                  ? ' +${widget.job.eligibleBranches.length - 2}'
+                                  : ''),
+                        ),
+                      ),
                     ],
                   ),
                 ],

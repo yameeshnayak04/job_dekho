@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/job_feed_screen.dart';
+import 'screens/job_swipe_screen.dart';
 import 'screens/my_applications_screen.dart';
 import 'utils/app_theme.dart';
 
@@ -18,6 +19,9 @@ class PlacementApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       home: const MainNavigator(),
+      routes: {
+        '/applications': (context) => const MyApplicationsScreen(),
+      },
       debugShowCheckedModeBanner: false,
     );
   }
@@ -34,7 +38,7 @@ class _MainNavigatorState extends State<MainNavigator> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-    const JobFeedScreen(),
+    const JobSwipeScreen(),
     const MyApplicationsScreen(),
   ];
 

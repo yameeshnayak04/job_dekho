@@ -188,6 +188,30 @@ class ATSScoreWidget extends StatelessWidget {
                 ),
               ),
             ],
+            if (atsScore.missingKeywords.isNotEmpty) ...[
+              const SizedBox(height: 16),
+              const Divider(),
+              const SizedBox(height: 12),
+              Text(
+                'Missing Keywords',
+                style: theme.textTheme.titleSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: atsScore.missingKeywords
+                    .map(
+                      (k) => Chip(
+                        label: Text(k),
+                        backgroundColor: theme.colorScheme.errorContainer,
+                      ),
+                    )
+                    .toList(),
+              ),
+            ],
           ],
         ),
       ),
